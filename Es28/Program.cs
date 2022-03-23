@@ -21,71 +21,118 @@ namespace Es28_prova
 
         static void Main(string[] args)
         {
-            AlberoBinario a = new AlberoBinario();
-            a.insDX(69);
-            a.insDX(23);
-            a.insSX(33);
+            AlberoBinario sx;
+            AlberoBinario dx;
+            AlberoBinario p;
+            AlberoBinario r = new AlberoBinario(69);
+
+            sx = new AlberoBinario(2);
+            dx = new AlberoBinario(71);
+            p = new AlberoBinario(39, sx, dx);
+            sx = p;
+            dx = new AlberoBinario(66);
+
+            r.aggiungiFiglioSx(new AlberoBinario(89,sx, dx));
+
+            sx = new AlberoBinario(44);
+            dx = new AlberoBinario(12);
+
+            r.aggiungiFiglioDx(new AlberoBinario(28,sx, dx));
+
+            r.stampa();
+
+            Console.WriteLine("........................");
+            Console.WriteLine(r);
+
+            Console.ReadKey();
         }
         class AlberoBinario
         {
-            AlberoBinario radice;
+            int val;
             AlberoBinario dx;
             AlberoBinario sx;
             
-            int val;
-            private AlberoBinario succDx;
-            private AlberoBinario succSx;
-
-            public AlberoBinario(int n)
+            public AlberoBinario(int val,AlberoBinario sx, AlberoBinario dx)
             {
-                radice.val= n;
+                this.val=val;
+                this.dx=dx;
+                this.sx=sx;
             }
-            public AlberoBinario() { }
-
-            public void insDX(int val)
-            {
-                AlberoBinario n = new AlberoBinario(val);
-                if (radice == null)
-                {
-                    radice = n;
-                }
-                else
-                {
-                    n.setSuccDx(radice);
-                    radice = n;
-                }
-            }
-            public void insSX(int val)
-            {
-                AlberoBinario n = new AlberoBinario(val);
-                if (radice == null)
-                {
-                    radice = n;
-                }
-                else
-                {
-                    n.setSuccSx(radice);
-                    radice = n;
-                }
-            }
-            public void setSuccDx(AlberoBinario n)
-            {
-                this.succDx = n;
-            }
-
-            public void setSuccSx(AlberoBinario n)
-            {
-                this.succSx = n;
-            }
-
-            public int getVal()
-            {
-                return val;
-            }
-
-            public void setVal(int val)
+            public AlberoBinario(int val)
             {
                 this.val = val;
+                this.dx = null;
+                this.sx = null;
+            }
+            public void aggiungiFiglioSx(AlberoBinario n)
+            {
+                this.sx = n;
+            }
+            public void aggiungiFiglioDx(AlberoBinario n)
+            {
+                this.dx = n;
+            }
+            public override string ToString()
+            {
+                string str = null;
+
+
+                if (dx == null && sx == null)
+                {
+                    str += this.val;
+                }
+                else
+                {
+                    str += this.val;
+
+                    try
+                    {
+                        str+=sx.ToString();
+                    }
+                    catch
+                    {
+                       
+                    }
+
+                    try
+                    {
+                        str+=dx.ToString();
+                    }
+                    catch
+                    {
+                        
+                    }
+                }
+                return  "\n \n" + str;
+            }
+            public void stampa()
+            {
+                if(sx==null&& dx == null)
+                {
+                    Console.WriteLine(this.val);
+                }
+                else
+                {
+                    Console.WriteLine(this.val);
+
+                    try
+                    {
+                        sx.stampa();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Sin");
+                    }
+                    try
+                    {
+                        dx.stampa();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Des");
+                    }
+                    
+                }
             }
         }
 
