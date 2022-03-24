@@ -19,6 +19,7 @@ namespace Es28_prova
         Provare a creare con questi metodi l'albero binario nell'immagine a questo link:
         https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJQuXa37eEBJJRrk7ft-ANd0EvdbbjP1pA8g&usqp=CAU*/
 
+
         static void Main(string[] args)
         {
             AlberoBinario sx;
