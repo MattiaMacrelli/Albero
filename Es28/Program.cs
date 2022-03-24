@@ -103,7 +103,7 @@ namespace Es28_prova
                         
                     }
                 }
-                return  "\n \n" + str;
+                return "(" + str + ")";
             }
             public void stampa()
             {
