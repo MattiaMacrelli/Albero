@@ -147,6 +147,7 @@ namespace Es28_prova
 
                 }
             }
+
             public void stampaIterativa()
             {
                 Stack s= new Stack();
