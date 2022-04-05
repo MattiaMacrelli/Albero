@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Es28_prova
 {
@@ -132,6 +133,25 @@ namespace Es28_prova
                         Console.WriteLine("Des");
                     }
                     
+                }
+            }
+            public void stampaIterativa()
+            {
+                Stack s = new Stack();
+                s.Push(this);
+                while (s.Count != 0)
+                {
+                    AlberoBinario tmp = s.Pop() as AlberoBinario;
+                    Console.WriteLine(tmp.val);
+
+                    if (tmp.dx != null)
+                    {
+                        s.Push(tmp.dx);
+                    }
+                    if (tmp.sx != null)
+                    {
+                        s.Push(tmp.sx);
+                    }
                 }
             }
         }
