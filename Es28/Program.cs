@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,18 +34,21 @@ namespace Es28_prova
             sx = p;
             dx = new AlberoBinario(66);
 
-            r.aggiungiFiglioSx(new AlberoBinario(89,sx, dx));
+            r.aggiungiFiglioSx(new AlberoBinario(89, sx, dx));
 
             sx = new AlberoBinario(44);
             dx = new AlberoBinario(12);
 
-            r.aggiungiFiglioDx(new AlberoBinario(28,sx, dx));
+            r.aggiungiFiglioDx(new AlberoBinario(28, sx, dx));
 
             r.stampa();
 
             Console.WriteLine("........................");
             Console.WriteLine(r);
 
+            Console.WriteLine("_______________________");
+            r.stampaIterativaProfondità();
+          
             Console.ReadKey();
         }
         class AlberoBinario
@@ -52,12 +56,12 @@ namespace Es28_prova
             int val;
             AlberoBinario dx;
             AlberoBinario sx;
-            
-            public AlberoBinario(int val,AlberoBinario sx, AlberoBinario dx)
+
+            public AlberoBinario(int val, AlberoBinario sx, AlberoBinario dx)
             {
-                this.val=val;
-                this.dx=dx;
-                this.sx=sx;
+                this.val = val;
+                this.dx = dx;
+                this.sx = sx;
             }
             public AlberoBinario(int val)
             {
@@ -88,27 +92,27 @@ namespace Es28_prova
 
                     try
                     {
-                        str+=sx.ToString();
+                        str += sx.ToString();
                     }
                     catch
                     {
-                       
+
                     }
 
                     try
                     {
-                        str+=dx.ToString();
+                        str += dx.ToString();
                     }
                     catch
                     {
-                        
+
                     }
                 }
                 return "(" + str + ")";
             }
             public void stampa()
             {
-                if(sx==null&& dx == null)
+                if (sx == null && dx == null)
                 {
                     Console.WriteLine(this.val);
                 }
@@ -132,10 +136,10 @@ namespace Es28_prova
                     {
                         Console.WriteLine("Des");
                     }
-                    
+
                 }
             }
-            public void stampaIterativa()
+            public void stampaIterativaProfondità()
             {
                 Stack s = new Stack();
                 s.Push(this);
